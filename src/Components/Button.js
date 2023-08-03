@@ -76,9 +76,24 @@ const Button = ({value}) => {
             })
          }
         }
+        // user percentege
+         const percenClick = () =>{
+            setCalc ({
+                num: (calc.num/100),
+                res: (calc.num/100),
+                sign:''
+            })
+         }
 
+        // user puls and minus
         
-        
+        const invertClick = () => {
+            setCalc ({
+                num:(calc.num? calc.num *-1:0),
+               res:(calc.num? calc.num *-1:0),
+               sign:''
+            })
+        }
     const handleClick = () => {
       
         const results = {
@@ -89,6 +104,8 @@ const Button = ({value}) => {
             '+':signClick,
             '-':signClick,
             '=': equalsClick,
+            '%':percenClick,
+            '+-': invertClick,
         }
         if(results[value]){
             return results[value]()
